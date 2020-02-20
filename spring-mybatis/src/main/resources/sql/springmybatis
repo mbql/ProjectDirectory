@@ -1,0 +1,19 @@
+#创建数据库
+CREATE DATABASE springmybatis;
+
+#创建新表
+CREATE TABLE student  (
+  id INT(11) PRIMARY KEY AUTO_INCREMENT,
+  `name` VARCHAR(10) NOT NULL,
+  sex VARCHAR(2) NOT NULL,
+  addr VARCHAR(10) NOT NULL
+)ENGINE=INNODB DEFAULT CHARSET=utf8;
+
+#添加数据集
+INSERT INTO `student` VALUES (1, '老王', '女', '北京');
+INSERT INTO `student` VALUES (2, '小李', '男', '上海');
+INSERT INTO `student` VALUES (3, '小刘', '女', '深圳');
+INSERT INTO `student` VALUES (4, '小张', '男', '南京');
+INSERT INTO `student` VALUES (5, '老王', '女', '哈尔滨');
+INSERT INTO `student` VALUES (6, '老赵', '男', '沈阳');
+INSERT INTO `student` VALUES (7, '老李', '女', '大连');

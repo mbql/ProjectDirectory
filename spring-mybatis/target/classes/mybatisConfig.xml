@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--定义类别名-->
+    <typeAliases>
+        <package name="com.zm.springmybatis.entity"/>
+    </typeAliases>
+    <!--加载映射文件-->
+    <!--在applicationContext.xml中使用的是扫描包的形式来创建mapper代理对象，这里不用再次指定-->
+    <!--<mappers>
+        <package name="com.zm.springmybatis.dao"/>
+    </mappers>-->
+
+</configuration>
+

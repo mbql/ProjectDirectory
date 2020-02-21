@@ -11,9 +11,9 @@
 
 #### 安装教程
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+1.  jdk1.8,maven,eclipse or idea
+2.  有兴趣可以安装一下git or svn
+3.  提供一款强大的编辑工具Typora,具有Markdown编辑特点
 
 #### 使用说明
 

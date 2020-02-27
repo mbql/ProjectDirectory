@@ -1,0 +1,10 @@
+server:
+  port: 8089
+dubbo:
+  application:
+    name: dubbo-user-producer
+  registry:
+    address: zookeeper://134.175.206.167:2181
+  protocol:
+    name: dubbo
+    port: 20882

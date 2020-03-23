@@ -1,0 +1,19 @@
+server:
+  port: 8085
+spring:
+  application:
+    name: SpringBootSentinel
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard: 127.0.0.1:8080
+feign:
+  sentinel:
+    enabled: true
+
+eureka:
+  client:
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:7001/eureka/

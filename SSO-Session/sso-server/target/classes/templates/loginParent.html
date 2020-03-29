@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        window.onload=function () {
+            var  returnUrl= window.location.href.split("?")[1];
+            document.getElementById("login").setAttribute("href","/loginServer?"+returnUrl);
+        }
+    </script>
+</head>
+<body>
+<h1>登录页</h1>
+<a id="login" href="">登录</a>
+</body>
+</html>

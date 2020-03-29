@@ -1,0 +1,20 @@
+server:
+  port: 8086
+spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+  mvc:
+      view:
+        prefix: /resources/templates
+        suffix: .html
+  redis:
+    database: 0
+    host: 134.175.206.167
+    port: 6379
+    password:
+    lettuce:
+      pool:
+        max-active: 50
+        max-idle: 30
+        min-idle: 10

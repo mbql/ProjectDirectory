@@ -5,4 +5,4 @@ spring:
       password: 123
       roles: admin
 server:
-  port: 8083
+  port: 8088

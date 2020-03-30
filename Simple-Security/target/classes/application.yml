@@ -1,0 +1,8 @@
+spring:
+  security:
+    user:
+      name: mbql
+      password: 123
+      roles: admin
+server:
+  port: 8083

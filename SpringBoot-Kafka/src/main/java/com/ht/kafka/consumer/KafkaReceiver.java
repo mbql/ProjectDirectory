@@ -6,6 +6,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Optional;
 
 /**
@@ -17,7 +19,7 @@ public class KafkaReceiver {
 
     private static Logger logger = LoggerFactory.getLogger(KafkaReceiver.class);
 
-    @KafkaListener(topics = "hello")
+    @KafkaListener(topics = "sueno")
     public void listen(ConsumerRecord<?, ?> record) {
         Optional<?> kafkaMessage = Optional.ofNullable(record.value());
         if (kafkaMessage.isPresent()) {
@@ -26,4 +28,14 @@ public class KafkaReceiver {
             logger.info("------------------ message =" + message);
         }
     }
+
+    public static void main(String[] args) {
+        Map map = new HashMap();
+        // for (int i = 0; i < 12; i++) {
+        //     map.put(i,"abc");
+        // }
+        map.put("sueno","test");
+        map.get("sueno");
+    }
+
 }

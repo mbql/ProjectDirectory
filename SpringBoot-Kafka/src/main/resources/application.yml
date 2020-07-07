@@ -2,18 +2,19 @@ server:
   port: 8089
 spring:
   kafka:
-    bootstrap-servers: 134.175.206.167:9092
+    bootstrap-servers: 39.108.146.20:9092
     producer:
-      retries: 0
+      retries: 3
       batch-size: 16384
       buffer-memory: 33554432
       key-serializer: org.apache.kafka.common.serialization.StringSerializer
       value-serializer: org.apache.kafka.common.serialization.StringSerializer
+      acks: 1
     consumer:
-      group-id: test-hello-group
+      group-id: test-sueno-group
       auto-offset-reset: earliest
       enable-auto-commit: true
-      auto-commit-interval: 100
+      auto-commit-interval: 300
       key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
       value-deserializer: org.apache.kafka.common.serialization.StringDeserializer
     listener:

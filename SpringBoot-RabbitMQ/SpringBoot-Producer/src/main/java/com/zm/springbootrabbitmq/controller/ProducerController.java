@@ -29,7 +29,7 @@ public class ProducerController {
         helloSend.send();
         return "生产者发送成功";
     }
-
+    
     @GetMapping("sendList")
     public String sendList() {
         for (int i = 0; i < 10; i++) {

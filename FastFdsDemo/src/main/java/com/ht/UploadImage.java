@@ -28,7 +28,7 @@ public class UploadImage {
             //该对象保存数据的元信息，有的话可以键值对的方式写入，没有可以为null
             NameValuePair nvp[] = null;
             //上传到文件系统
-            String fileId = client.upload_file1("C:\\Users\\HP\\Pictures\\Camera Roll\\timg.jpg", "jpg",
+            String fileId = client.upload_file1("C:\\Users\\HP\\Pictures\\桌面壁纸\\snx.jpeg", "jpeg",
                     nvp);
             logger.info(fileId);
         } catch (Exception e) {

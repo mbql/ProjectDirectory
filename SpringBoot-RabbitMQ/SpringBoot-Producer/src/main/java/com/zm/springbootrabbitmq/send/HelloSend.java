@@ -32,9 +32,7 @@ public class HelloSend {
     }
 
     /**
-
      * 用于单/多生产者-》多消费者测试
-
      */
     public void sendList(String msg) {
         String sendMsg = msg + new Date();

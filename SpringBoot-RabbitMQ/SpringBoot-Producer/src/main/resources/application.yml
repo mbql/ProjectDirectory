@@ -2,10 +2,10 @@ server:
   port: 8086
 spring:
   rabbitmq:
-    host: 134.175.206.167
+    host: 39.108.146.20
     port: 5672
-    username: admin
-    password: admin
+    username: sueno
+    password: sueno
     virtual-host: mbql
     publisher-confirms: true
     publisher-returns: true

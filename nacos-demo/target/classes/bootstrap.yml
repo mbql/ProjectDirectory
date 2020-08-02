@@ -1,0 +1,33 @@
+spring:
+  application:
+    name: nacos-config
+  cloud:
+    nacos:
+      config:
+        #配置中心地址
+        server-addr: 39.108.146.20:8848
+        #配置方式yml，目前仅支持properties/yaml
+        file-extension: yml
+        #默认开启自动刷新
+        refresh-enabled: true
+        #不同组可以有相同的属性
+        group: dev
+        #可以根据配置环境不同相互隔离
+      discovery:
+        server-addr: 39.108.146.20:8848
+#        username: nacos
+#        password: $2a$10$pxs77T/88cjff7zFKQlIheFQaVFDKBzQafrBgE.GnQ/EYKO0MMpgC
+        register-enabled: true
+        enabled: true
+        watch:
+          enabled: true
+        watch-delay: 30000
+        heart-beat-interval: 3000
+        heart-beat-timeout: 30000
+        group: dev
+        service: ${spring.application.name}
+        weight: 1
+        secure: false
+  #        namespace: pro
+  main:
+    allow-bean-definition-overriding: true

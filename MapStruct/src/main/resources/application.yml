@@ -1,0 +1,7 @@
+spring:
+  application:
+    name: mapstruct
+server:
+  port: 8090
+
+

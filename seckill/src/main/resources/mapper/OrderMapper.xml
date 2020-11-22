@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.seckill.mapper.OrderMapper">
+
+    <resultMap type="com.ht.seckill.bean.Order" id="OrderMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="payType" column="pay_type" jdbcType="OTHER"/>
+        <result property="payStatus" column="pay_status" jdbcType="OTHER"/>
+        <result property="orderPrice" column="order_price" jdbcType="NUMERIC"/>
+        <result property="orderNo" column="order_no" jdbcType="VARCHAR"/>
+        <result property="payPrice" column="pay_price" jdbcType="NUMERIC"/>
+        <result property="payTime" column="pay_time" jdbcType="TIMESTAMP"/>
+        <result property="leavMessage" column="leav_message" jdbcType="VARCHAR"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDelete" column="is_delete" jdbcType="OTHER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="OrderMap">
+        select
+          id, pay_type, pay_status, order_price, order_no, pay_price, pay_time, leav_message, create_time, update_time, is_delete
+        from seckill.order
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="OrderMap">
+        select
+          id, pay_type, pay_status, order_price, order_no, pay_price, pay_time, leav_message, create_time, update_time, is_delete
+        from seckill.order
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="OrderMap">
+        select
+          id, pay_type, pay_status, order_price, order_no, pay_price, pay_time, leav_message, create_time, update_time, is_delete
+        from seckill.order
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="payType != null">
+                and pay_type = #{payType}
+            </if>
+            <if test="payStatus != null">
+                and pay_status = #{payStatus}
+            </if>
+            <if test="orderPrice != null">
+                and order_price = #{orderPrice}
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                and order_no = #{orderNo}
+            </if>
+            <if test="payPrice != null">
+                and pay_price = #{payPrice}
+            </if>
+            <if test="payTime != null">
+                and pay_time = #{payTime}
+            </if>
+            <if test="leavMessage != null and leavMessage != ''">
+                and leav_message = #{leavMessage}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="isDelete != null">
+                and is_delete = #{isDelete}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into seckill.order(pay_type, pay_status, order_price, order_no, pay_price, pay_time, leav_message, create_time, update_time, is_delete)
+        values (#{payType}, #{payStatus}, #{orderPrice}, #{orderNo}, #{payPrice}, #{payTime}, #{leavMessage}, #{createTime}, #{updateTime}, #{isDelete})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update seckill.order
+        <set>
+            <if test="payType != null">
+                pay_type = #{payType},
+            </if>
+            <if test="payStatus != null">
+                pay_status = #{payStatus},
+            </if>
+            <if test="orderPrice != null">
+                order_price = #{orderPrice},
+            </if>
+            <if test="orderNo != null and orderNo != ''">
+                order_no = #{orderNo},
+            </if>
+            <if test="payPrice != null">
+                pay_price = #{payPrice},
+            </if>
+            <if test="payTime != null">
+                pay_time = #{payTime},
+            </if>
+            <if test="leavMessage != null and leavMessage != ''">
+                leav_message = #{leavMessage},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from seckill.order where id = #{id}
+    </delete>
+
+</mapper>

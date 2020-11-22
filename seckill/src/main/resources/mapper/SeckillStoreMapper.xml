@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ht.seckill.mapper.SeckillStoreMapper">
+
+    <resultMap type="com.ht.seckill.bean.SeckillStore" id="SeckillStoreMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="proId" column="pro_id" jdbcType="INTEGER"/>
+        <result property="sckillProName" column="sckill_pro_name" jdbcType="VARCHAR"/>
+        <result property="sckillProPrice" column="sckill_pro_price" jdbcType="NUMERIC"/>
+        <result property="sckillProStore" column="sckill_pro_store" jdbcType="INTEGER"/>
+        <result property="sckillStartTime" column="sckill_start_time" jdbcType="TIMESTAMP"/>
+        <result property="sckillEndTime" column="sckill_end_time" jdbcType="TIMESTAMP"/>
+        <result property="sckillStatus" column="sckill_status" jdbcType="OTHER"/>
+        <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+        <result property="updateTime" column="update_time" jdbcType="TIMESTAMP"/>
+        <result property="isDelete" column="is_delete" jdbcType="OTHER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="SeckillStoreMap">
+        select
+          id, pro_id, sckill_pro_name, sckill_pro_price, sckill_pro_store, sckill_start_time, sckill_end_time, sckill_status, create_time, update_time, is_delete
+        from seckill.seckill_store
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="SeckillStoreMap">
+        select
+          id, pro_id, sckill_pro_name, sckill_pro_price, sckill_pro_store, sckill_start_time, sckill_end_time, sckill_status, create_time, update_time, is_delete
+        from seckill.seckill_store
+        limit #{offset}, #{limit}
+    </select>
+
+    <!--通过实体作为筛选条件查询-->
+    <select id="queryAll" resultMap="SeckillStoreMap">
+        select
+          id, pro_id, sckill_pro_name, sckill_pro_price, sckill_pro_store, sckill_start_time, sckill_end_time, sckill_status, create_time, update_time, is_delete
+        from seckill.seckill_store
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="proId != null">
+                and pro_id = #{proId}
+            </if>
+            <if test="sckillProName != null and sckillProName != ''">
+                and sckill_pro_name = #{sckillProName}
+            </if>
+            <if test="sckillProPrice != null">
+                and sckill_pro_price = #{sckillProPrice}
+            </if>
+            <if test="sckillProStore != null">
+                and sckill_pro_store = #{sckillProStore}
+            </if>
+            <if test="sckillStartTime != null">
+                and sckill_start_time = #{sckillStartTime}
+            </if>
+            <if test="sckillEndTime != null">
+                and sckill_end_time = #{sckillEndTime}
+            </if>
+            <if test="sckillStatus != null">
+                and sckill_status = #{sckillStatus}
+            </if>
+            <if test="createTime != null">
+                and create_time = #{createTime}
+            </if>
+            <if test="updateTime != null">
+                and update_time = #{updateTime}
+            </if>
+            <if test="isDelete != null">
+                and is_delete = #{isDelete}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into seckill.seckill_store(pro_id, sckill_pro_name, sckill_pro_price, sckill_pro_store, sckill_start_time, sckill_end_time, sckill_status, create_time, update_time, is_delete)
+        values (#{proId}, #{sckillProName}, #{sckillProPrice}, #{sckillProStore}, #{sckillStartTime}, #{sckillEndTime}, #{sckillStatus}, #{createTime}, #{updateTime}, #{isDelete})
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update seckill.seckill_store
+        <set>
+            <if test="proId != null">
+                pro_id = #{proId},
+            </if>
+            <if test="sckillProName != null and sckillProName != ''">
+                sckill_pro_name = #{sckillProName},
+            </if>
+            <if test="sckillProPrice != null">
+                sckill_pro_price = #{sckillProPrice},
+            </if>
+            <if test="sckillProStore != null">
+                sckill_pro_store = #{sckillProStore},
+            </if>
+            <if test="sckillStartTime != null">
+                sckill_start_time = #{sckillStartTime},
+            </if>
+            <if test="sckillEndTime != null">
+                sckill_end_time = #{sckillEndTime},
+            </if>
+            <if test="sckillStatus != null">
+                sckill_status = #{sckillStatus},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime},
+            </if>
+            <if test="isDelete != null">
+                is_delete = #{isDelete},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete from seckill.seckill_store where id = #{id}
+    </delete>
+
+</mapper>

@@ -1,0 +1,17 @@
+server:
+  port: 8086
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://39.108.146.20:3307/petdb?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=Asia/Shanghai
+    username: root
+    password: 123456
+    type: com.alibaba.druid.pool.DruidDataSource
+  redis:
+    database: 0
+    port: 6379
+    host: 39.108.146.20
+    password: abc123
+mybatis:
+  type-aliases-package: com.ht.seckill.bean
+  mapper-locations: classpath:mapper/*.xml

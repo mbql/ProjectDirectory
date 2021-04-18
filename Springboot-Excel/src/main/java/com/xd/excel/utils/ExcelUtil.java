@@ -31,14 +31,14 @@ public class ExcelUtil {
     // 数据行高
     private static final float DATA_ROW_HEIGHT = 25;
 
-    public static void exportExcel(HttpServletRequest request, HttpServletResponse response, String fileName , List<?> excelData, Class<?> clz) {
+    public static void exportExcel(HttpServletRequest request, HttpServletResponse response, String fileName , List<?> excelData, Class<?> clazz) {
         try {
 
             HSSFWorkbook resultWb=new HSSFWorkbook();
             HSSFSheet sheet=resultWb.createSheet(fileName);
 
             // 根据类类型信息获取导出的excel对应的标题和列宽 key-列号，value-标题和列宽
-            Map<Integer, TitleColumn> orderTitleAndColumnMap = getTitleColumnMap(clz);
+            Map<Integer, TitleColumn> orderTitleAndColumnMap = getTitleColumnMap(clazz);
 
             // 设置标题列宽
             orderTitleAndColumnMap.forEach((k,v) -> {
@@ -103,7 +103,7 @@ public class ExcelUtil {
                 Integer order = f.getAnnotation(ExcelColumn.class).order();
                 String title= f.getAnnotation(ExcelColumn.class).title();
                 int column = f.getAnnotation(ExcelColumn.class).column();
-                TitleColumn titleColumn = new TitleColumn(title,column);
+                TitleColumn titleColumn = new TitleColumn(title, column);
                 orderTitleColumnMap.put(order, titleColumn);
             }
         }
